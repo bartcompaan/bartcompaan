@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bart Compaan - DJ Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Splash Screen met Loading Animation -->
+    <div id="splashScreen" class="splash-screen">
+        <div class="turntable-container">
+            <svg class="turntable" viewBox="0 0 200 200">
+                <!-- Buitenring -->
+                <circle cx="100" cy="100" r="95" fill="#1a1a1a" stroke="#ff6b00" stroke-width="2"/>
+                
+                <!-- Plaat -->
+                <circle cx="100" cy="100" r="85" fill="#0a0a0a" stroke="#333" stroke-width="1"/>
+                
+                <!-- Vinyl grooves -->
+                <circle cx="100" cy="100" r="80" fill="none" stroke="#222" stroke-width="0.5" opacity="0.5"/>
+                <circle cx="100" cy="100" r="70" fill="none" stroke="#222" stroke-width="0.5" opacity="0.5"/>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="#222" stroke-width="0.5" opacity="0.5"/>
+                <circle cx="100" cy="100" r="50" fill="none" stroke="#222" stroke-width="0.5" opacity="0.5"/>
+                
+                <!-- Center label -->
+                <circle cx="100" cy="100" r="25" fill="#ff6b00"/>
+                <circle cx="100" cy="100" r="20" fill="#0a0a0a"/>
+                <circle cx="100" cy="100" r="5" fill="#ff6b00"/>
+            </svg>
+        </div>
+        <p class="loading-text">Laden...</p>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🎧</span>
+                <span class="logo-text">Bart Compaan</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#over">Wie ben ik</a></li>
+                <li><a href="#fotos">Fotos</a></li>
+                <li><a href="#offerte">Offerte aanvragen</a></li>
+                <li><a href="#afspraak">Afspraak maken</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bart Compaan</h1>
+            <p class="tagline">Professionele DJ voor je Eventje</p>
+            <div class="cta-buttons">
+                <a href="#offerte" class="btn btn-primary">Offerte aanvragen</a>
+                <a href="#afspraak" class="btn btn-secondary">Afspraak maken</a>
+            </div>
+        </div>
+        <div class="hero-bg-pattern"></div>
+    </section>
+
+    <!-- Wie ben ik Section -->
+    <section id="over" class="section about">
+        <div class="container">
+            <h2>Wie ben ik</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hallo, ik ben Bart Compaan, een passionele DJ met jaren ervaring in het creëren van onvergetelijke muzikale ervaringen. Of het nu gaat om bruiloften, feestjes, bedrijfsevents of club nights, ik zorg ervoor dat de muziek perfect aansluit bij jouw event.</p>
+                    <p>Met mijn professionele uitrusting en uitgebreide muziekverzameling creëer ik een sfeer waar iedereen van geniet. Mijn specialiteiten zijn:</p>
+                    <ul class="features-list">
+                        <li>🎵 Bruiloften en Private Events</li>
+                        <li>🎉 Verjaarsdagen en Feestjes</li>
+                        <li>💼 Bedrijfsevents en Conferenties</li>
+                        <li>🎪 Festivals en Club Nights</li>
+                        <li>🎧 Professionele Geluidstechniek</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <div class="placeholder-image">
+                        <span class="placeholder-icon">🎧</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fotos Section -->
+    <section id="fotos" class="section gallery">
+        <div class="container">
+            <h2>Fotos</h2>
+            <p class="section-subtitle">Bekijk enkele impressies van recente events</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span class="placeholder-icon">📸</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span class="placeholder-icon">🎸</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span class="placeholder-icon">🎤</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span class="placeholder-icon">🎵</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span class="placeholder-icon">🎶</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span class="placeholder-icon">🎼</span>
+                    </div>
+                </div>
+            </div>
+            <p class="gallery-note">Foto's kunnen hier eenvoudig worden toegevoegd</p>
+        </div>
+    </section>
+
+    <!-- Offerte Aanvragen Section -->
+    <section id="offerte" class="section quote-request">
+        <div class="container">
+            <h2>Offerte aanvragen</h2>
+            <p class="section-subtitle">Vul het formulier in en ik neem snel contact met je op</p>
+            <form class="form" id="quoteForm">
+                <div class="form-group">
+                    <input type="text" id="naam" name="naam" placeholder="Je naam" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Je e-mailadres" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="telefoon" name="telefoon" placeholder="Je telefoonnummer" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="datum" name="datum" required>
+                </div>
+                <div class="form-group">
+                    <select id="eventtype" name="eventtype" required>
+                        <option value="">Kies het type event...</option>
+                        <option value="bruiloft">Bruiloft</option>
+                        <option value="verjaardag">Verjaardag</option>
+                        <option value="bedrijf">Bedrijfsevent</option>
+                        <option value="festival">Festival</option>
+                        <option value="anders">Anders</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="bericht" name="bericht" placeholder="Vertel meer over je event..." rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Offerte aanvragen</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Afspraak Maken Section -->
+    <section id="afspraak" class="section appointment">
+        <div class="container">
+            <h2>Afspraak maken</h2>
+            <p class="section-subtitle">Reserveer een moment voor een persoonlijk gesprek</p>
+            <form class="form" id="appointmentForm">
+                <div class="form-group">
+                    <input type="text" id="naam2" name="naam" placeholder="Je naam" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email2" name="email" placeholder="Je e-mailadres" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="telefoon2" name="telefoon" placeholder="Je telefoonnummer" required>
+                </div>
+                <div class="form-group">
+                    <label for="datum2">Kies een moment:</label>
+                    <input type="datetime-local" id="datum2" name="datum" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="opmerking" name="opmerking" placeholder="Opmerkingen of vragen?" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Afspraak bevestigen</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:info@bartcompaan.nl">info@bartcompaan.nl</a></p>
+                <p>Telefoon: <a href="tel:+31612345678">+31 (0)6 12345678</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Volg mij</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">YouTube</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>&copy; 2026 Bart Compaan</h3>
+                <p>Alle rechten voorbehouden</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
