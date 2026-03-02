@@ -3,17 +3,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
 :root {
-    --primary-color: #ff6b00;
-    --dark-bg: #0a0a0a;
-    --dark-bg-2: #1a1a1a;
-    --dark-bg-3: #2a2a2a;
-    --text-light: #e0e0e0;
-    --text-muted: #a0a0a0;
-    --accent-color: #ff6b00;
-    --transition: all 0.3s ease;
+  --primary-color: #1e88e5;   /* blauw */
+  --accent-color:  #1e88e5;   /* blauw */
+
+  /* handig voor rgba() effecten */
+  --accent-rgb: 30, 136, 229;
+
+  --dark-bg: #0a0a0a;
+  --dark-bg-2: #1a1a1a;
+  --dark-bg-3: #2a2a2a;
+  --text-light: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --transition: all 0.3s ease;
 }
 
 html {
