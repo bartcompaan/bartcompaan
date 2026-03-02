@@ -1,311 +1,172 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bartcompaan — DJ (Disco • House • Classics)</title>
-  <meta name="description" content="DJ Bartcompaan — Disco, house, studentenhitjes & classics. Beschikbaar voor feesten, borrels en events." />
-  <meta name="theme-color" content="#0b0f17" />
-  <meta property="og:title" content="Bartcompaan — DJ" />
-  <meta property="og:description" content="Disco • House • Studentenhitjes & Classics — boekingen & contact." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/gig-2.webp" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bart Compaan - DJ</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <header class="header">
-    <div class="container header__inner">
-      <a class="logo" href="#top" aria-label="Bartcompaan home">
-        <img class="logo__img" src="assets/ChatGPT Image Mar 2, 2026, 11_19_09 PM.png" alt="Bart Compaan logo" />
-        <span class="logo__text">Bartcompaan</span>
-      </a>
-      <nav class="nav" aria-label="Hoofdmenu">
-        <button class="nav__toggle" aria-expanded="false" aria-controls="navLinks">
-          <span class="sr-only">Menu</span>
-          <span class="nav__bars" aria-hidden="true"></span>
-        </button>
-        <div class="nav__links" id="navLinks">
-          <a href="#sets">Sets</a>
-          <a href="#media">Media</a>
-          <a href="#wie-ben-ik">Wie ben ik</a>
-          <a href="#gallery">Foto’s</a>
-          <a href="#contact" class="btn btn--small">Boekingen</a>
-        </div>
-      </nav>
+
+  <!-- SPLASH SCREEN -->
+  <div id="splashScreen" class="splash-screen">
+    <div class="turntable-container">
+      <svg class="turntable" viewBox="0 0 200 200" aria-label="Loading">
+        <circle cx="100" cy="100" r="95" fill="#1a1a1a" style="stroke: var(--accent-color);" stroke-width="2"/>
+        <circle cx="100" cy="100" r="85" fill="#0a0a0a" stroke="#333" stroke-width="1"/>
+        <circle cx="100" cy="100" r="25" style="fill: var(--accent-color);"/>
+        <circle cx="100" cy="100" r="20" fill="#0a0a0a"/>
+        <circle cx="100" cy="100" r="5" style="fill: var(--accent-color);"/>
+      </svg>
     </div>
-  </header>
+    <p class="loading-text">Laden...</p>
+  </div>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero__bg" aria-hidden="true"></div>
-      <div class="container hero__inner">
-        <p class="pill">DJ • Groningen</p>
-        <h1>Bartcompaan</h1>
-        <p class="hero__sub">
-          Disco, house, studentenhitjes & classics — strak gemixt, veel energie, altijd op de vibe.
-        </p>
-        <div class="hero__cta">
-          <a class="btn" href="#contact">Check beschikbaarheid</a>
-          <a class="btn btn--ghost" href="#media">Luister & kijk</a>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-icon">🎧</span>
+        <span class="logo-text">Bart Compaan</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#over">Wie ben ik</a></li>
+        <li><a href="#fotos">Foto’s</a></li>
+        <li><a href="#offerte">Offerte aanvragen</a></li>
+        <li><a href="#afspraak">Afspraak maken</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Bart Compaan</h1>
+      <p class="tagline">DJ voor bruiloften, studentenfeestjes en events</p>
+      <div class="cta-buttons">
+        <a href="#offerte" class="btn btn-primary">Offerte aanvragen</a>
+        <a href="#afspraak" class="btn btn-secondary">Afspraak maken</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WIE BEN IK -->
+  <section id="over" class="section about">
+    <div class="container">
+      <h2>Wie ben ik</h2>
+
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            Ik ben Bart Compaan, DJ uit Groningen. Ik draai energieke sets die perfect aansluiten
+            bij de sfeer van jouw event. Van opbouw tot volle dansvloer — timing en energie staan centraal.
+          </p>
+
+          <p>
+            Met professionele apparatuur (in overleg) en een brede muziekkeuze zorg ik voor een soepele en verzorgde avond.
+          </p>
+
+          <ul class="features-list">
+            <li>🎵 Bruiloften en privé-events</li>
+            <li>🎉 Verjaardagen en feestjes</li>
+            <li>🎓 Studentenfeestjes</li>
+            <li>💼 Bedrijfsevents</li>
+            <li>🎧 Professionele geluidsset (in overleg)</li>
+          </ul>
         </div>
-        <div class="hero__stats" role="list" aria-label="Highlights">
-          <div class="stat" role="listitem">
-            <div class="stat__k">Genres</div>
-            <div class="stat__v">Disco • House • Classics</div>
-          </div>
-          <div class="stat" role="listitem">
-            <div class="stat__k">Events</div>
-            <div class="stat__v">Borrels • Feesten • Verenigingen</div>
-          </div>
-          <div class="stat" role="listitem">
-            <div class="stat__k">Boeking</div>
-            <div class="stat__v">Snel & helder</div>
-          </div>
+
+        <div class="about-image about-image-grid">
+          <img src="assets/about-1.webp" alt="DJ foto 1" class="about-photo">
+          <img src="assets/about-2.webp" alt="DJ foto 2" class="about-photo">
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="sets">
-      <div class="container">
-        <div class="section__head">
-          <h2>Sets</h2>
-          <p>Een set die klopt: opbouw, herkenning, piek — en door.</p>
-        </div>
+  <!-- FOTO'S -->
+  <section id="fotos" class="section gallery">
+    <div class="container">
+      <h2>Foto’s</h2>
+      <p class="section-subtitle">Impressies van recente events</p>
 
-        <div class="grid cards">
-          <article class="card">
-            <h3>Disco & Nu‑Disco</h3>
-            <p>Groove, vocals, feel‑good. Van klassiekers tot moderne edits.</p>
-            <ul class="list">
-              <li>Warm-up tot prime time</li>
-              <li>Dansvloer-first</li>
-              <li>Veel herkenning</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>House (Club / Funky)</h3>
-            <p>Strakke drums, uplifting energie, met ruimte voor slimme overgangen.</p>
-            <ul class="list">
-              <li>Funky & club house</li>
-              <li>Tempo op maat</li>
-              <li>Clean mixing</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Studentenhitjes & Classics</h3>
-            <p>Meebrullers, throwbacks, guilty pleasures — precies wanneer ze moeten vallen.</p>
-            <ul class="list">
-              <li>Feestmodus aan</li>
-              <li>Perfect voor borrels</li>
-              <li>Hands‑up momenten</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="note">
-          <strong>Tip:</strong> wil je een “verhaal”-set (disco → house) of juist chaos‑feest? Zeg het erbij — ik pas ’m aan.
-        </div>
+      <div class="gallery-grid">
+        <div class="gallery-item"><div class="gallery-placeholder">📸</div></div>
+        <div class="gallery-item"><div class="gallery-placeholder">🎧</div></div>
+        <div class="gallery-item"><div class="gallery-placeholder">🎉</div></div>
+        <div class="gallery-item"><div class="gallery-placeholder">🎶</div></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section section--alt" id="media">
-      <div class="container">
-        <div class="section__head">
-          <h2>Media</h2>
-          <p>Plak hier je SoundCloud/YouTube/Instagram links — de site pakt ze direct.</p>
+  <!-- OFFERTE -->
+  <section id="offerte" class="section quote-request">
+    <div class="container">
+      <h2>Offerte aanvragen</h2>
+      <p class="section-subtitle">Vul het formulier in en ik neem snel contact met je op</p>
+
+      <form class="form" id="quoteForm">
+        <div class="form-group">
+          <input type="text" name="naam" placeholder="Je naam" required>
         </div>
-
-        <div class="grid media">
-          <div class="embed card">
-            <h3>SoundCloud</h3>
-            <p class="muted">Vervang de URL in <code>index.html</code> (zoek op <em>SOUNDCLOUD_EMBED</em>).</p>
-            <div class="embed__frame">
-              <!-- SOUNDCLOUD_EMBED -->
-              <iframe title="SoundCloud player placeholder"
-                loading="lazy"
-                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/your-profile&color=%230b0f17&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
-              </iframe>
-            </div>
-          </div>
-
-          <div class="embed card">
-            <h3>Instagram / Reels</h3>
-            <p class="muted">Zet hier je IG link in je bio, en link je beste reel(s) hieronder.</p>
-            <div class="actions">
-              <a class="btn btn--ghost btn--small" href="#" aria-disabled="true">Instagram (link aanpassen)</a>
-              <a class="btn btn--ghost btn--small" href="#" aria-disabled="true">YouTube (optioneel)</a>
-            </div>
-            <div class="mini-grid">
-              <div class="mini card card--soft">
-                <p><strong>Reel 1</strong></p>
-                <p class="muted">Link placeholder</p>
-              </div>
-              <div class="mini card card--soft">
-                <p><strong>Reel 2</strong></p>
-                <p class="muted">Link placeholder</p>
-              </div>
-            </div>
-          </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Je e-mailadres" required>
         </div>
-
-      </div>
-    </section>
-
-    
-    <section class="section" id="wie-ben-ik">
-      <div class="container">
-        <div class="section__head">
-          <h2>Wie ben ik</h2>
-          <p>Kort en simpel: ik draai disco, house en classics met een studentenvibe — veel energie, strak gemixt, en altijd gebouwd naar het moment.</p>
+        <div class="form-group">
+          <input type="date" name="datum" required>
         </div>
-
-        <div class="grid about">
-          <div class="card">
-            <h3>Stijl</h3>
-            <p class="muted">Disco → house opbouw, met herkenbare moments (studentenhitjes & classics) precies op de juiste timing.</p>
-            <ul class="list">
-              <li>Warm-up, peak & landing</li>
-              <li>Veel herkenning</li>
-              <li>Tempo en energie op maat</li>
-            </ul>
-          </div>
-
-          <div class="card card--soft follow">
-            <h3>Volg mij</h3>
-            <p class="muted">Instagram / SoundCloud / TikTok — zet hier je echte links.</p>
-            <div class="actions">
-              <a class="btn btn--follow btn--small" href="#" aria-disabled="true">Instagram</a>
-              <a class="btn btn--follow btn--small" href="#" aria-disabled="true">SoundCloud</a>
-              <a class="btn btn--follow btn--small" href="#" aria-disabled="true">TikTok</a>
-            </div>
-            <p class="muted small">Tip: maak 1 “beste” mix + 1 hype reel en zet die bovenaan.</p>
-          </div>
+        <div class="form-group">
+          <textarea name="bericht" placeholder="Vertel meer over je event..." rows="4" required></textarea>
         </div>
-      </div>
-    </section>
+        <button type="submit" class="btn btn-primary">Verstuur aanvraag</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="section" id="gallery">
-      <div class="container">
-        <div class="section__head">
-          <h2>Foto’s</h2>
-          <p>Live shots die meteen laten zien wat je boekt.</p>
+  <!-- AFSPRAAK -->
+  <section id="afspraak" class="section appointment">
+    <div class="container">
+      <h2>Afspraak maken</h2>
+      <p class="section-subtitle">Reserveer een moment voor een persoonlijk gesprek</p>
+
+      <form class="form" id="appointmentForm">
+        <div class="form-group">
+          <input type="text" name="naam" placeholder="Je naam" required>
         </div>
-
-        <div class="gallery" aria-label="Fotogalerij">
-          <button class="gallery__item" data-full="assets/gig-1.webp" aria-label="Open foto 1">
-            <img src="assets/gig-1.webp" alt="DJ in actie met publiek" loading="lazy" />
-          </button>
-          <button class="gallery__item" data-full="assets/gig-2.webp" aria-label="Open foto 2">
-            <img src="assets/gig-2.webp" alt="DJ wijst naar publiek op het podium" loading="lazy" />
-          </button>
-          <button class="gallery__item" data-full="assets/gig-3.webp" aria-label="Open foto 3">
-            <img src="assets/gig-3.webp" alt="DJ met koptelefoon, energiek moment" loading="lazy" />
-          </button>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Je e-mailadres" required>
         </div>
-      </div>
-    </section>
-
-    <section class="section section--alt" id="contact">
-      <div class="container">
-        <div class="section__head">
-          <h2>Boekingen</h2>
-          <p>Stuur je aanvraag — je krijgt snel een helder antwoord (beschikbaarheid + prijsindicatie).</p>
+        <div class="form-group">
+          <input type="datetime-local" name="datum" required>
         </div>
-
-        <div class="grid contact">
-          <form class="card form" id="bookingForm">
-            <div class="form__row">
-              <label>
-                Naam
-                <input name="name" autocomplete="name" required placeholder="Je naam" />
-              </label>
-              <label>
-                Email
-                <input name="email" type="email" autocomplete="email" required placeholder="naam@mail.com" />
-              </label>
-            </div>
-
-            <div class="form__row">
-              <label>
-                Datum
-                <input name="date" type="date" required />
-              </label>
-              <label>
-                Plaats / locatie
-                <input name="location" required placeholder="Groningen / club / huisfeest…" />
-              </label>
-            </div>
-
-            <label>
-              Type event
-              <select name="eventType" required>
-                <option value="" selected disabled>Kies…</option>
-                <option>Borrel / vereniging</option>
-                <option>Huisfeest</option>
-                <option>Club / kroeg</option>
-                <option>Bedrijf / gala</option>
-                <option>Anders</option>
-              </select>
-            </label>
-
-            <label>
-              Vibe / wensen
-              <textarea name="notes" rows="4" placeholder="Disco → house opbouw? Meer classics? Verwachte eindtijd?"></textarea>
-            </label>
-
-            <div class="form__actions">
-              <button class="btn" type="submit">Verstuur aanvraag</button>
-              <p class="muted small">Gaat via je mailapp (geen backend nodig).</p>
-            </div>
-          </form>
-
-          <aside class="card card--soft">
-            <h3>Direct contact</h3>
-            <p class="muted">Zet hier je echte details, dan is het klaar.</p>
-            <div class="kv">
-              <div class="kv__k">Email</div>
-              <div class="kv__v"><a href="mailto:bartcompaan@example.com">bartcompaan@example.com</a></div>
-
-              <div class="kv__k">Instagram</div>
-              <div class="kv__v"><a href="#" aria-disabled="true">@bartcompaan</a></div>
-
-              <div class="kv__k">Telefoon</div>
-              <div class="kv__v"><a href="#" aria-disabled="true">+31 6 …</a></div>
-            </div>
-
-            <div class="divider"></div>
-
-            <h3>Tech (kort)</h3>
-            <ul class="list">
-              <li>2× XLR out / booth (afhankelijk set-up)</li>
-              <li>Controller of CDJ’s (in overleg)</li>
-              <li>Soundcheck waar nodig</li>
-            </ul>
-          </aside>
+        <div class="form-group">
+          <textarea name="opmerking" placeholder="Opmerkingen?" rows="4"></textarea>
         </div>
-      </div>
-    </section>
-  </main>
+        <button type="submit" class="btn btn-primary">Afspraak bevestigen</button>
+      </form>
+    </div>
+  </section>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer__inner">
-      <p class="muted">© <span id="year"></span> Bartcompaan. Disco • House • Classics.</p>
-      <div class="footer__links">
-        <a href="#top">Naar boven</a>
-        <a href="#contact">Boekingen</a>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Email: <a href="mailto:bartcompaan@gmail.com">bartcompaan@gmail.com</a></p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Volg mij</h3>
+        <a href="https://instagram.com/bartcompaan" target="_blank" rel="noopener" class="btn btn-primary">
+          Volg mij op Instagram (@bartcompaan)
+        </a>
+      </div>
+
+      <div class="footer-section">
+        <p>&copy; 2026 Bart Compaan</p>
       </div>
     </div>
   </footer>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Foto bekijken">
-    <button class="lightbox__close" id="lightboxClose" aria-label="Sluit">×</button>
-    <img id="lightboxImg" alt="Vergrote foto" />
-  </div>
 
   <script src="script.js"></script>
 </body>
