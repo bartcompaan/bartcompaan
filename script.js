@@ -1,130 +1,154 @@
-// ===== SPLASH SCREEN =====
-document.addEventListener('DOMContentLoaded', function() {
-    // Hide splash screen after 2.5 seconds
-    setTimeout(function() {
-        const splashScreen = document.getElementById('splashScreen');
-        splashScreen.classList.add('hidden');
-    }, 2500);
+// ===== CONFIG =====
+// 1) Maak een Formspree form aan en plak hier je endpoint:
+//    voorbeeld: https://formspree.io/f/abcdwxyz
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/PLAK_HIER_JE_ID";
 
-    // Form handling
-    handleQuoteForm();
-    handleAppointmentForm();
-    handleSmoothScroll();
+// 2) Waar jij de mails wilt ontvangen stel je in bij Formspree (dashboard)
+//    Dit is dus niet iets wat je veilig in JS kunt hardcoden.
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Splash screen na 2.5s weg
+  setTimeout(() => {
+    const splash = document.getElementById("splashScreen");
+    if (splash) splash.classList.add("hidden");
+  }, 2500);
+
+  // Forms
+  wireForm({
+    formId: "quoteForm",
+    subject: "Offerte aanvraag via website",
+    successMessage: "Bedankt! Je offerte-aanvraag is verzonden. Ik neem snel contact op."
+  });
+
+  wireForm({
+    formId: "appointmentForm",
+    subject: "Afspraak aanvraag via website",
+    successMessage: "Top! Je afspraak-aanvraag is verzonden. Ik stuur je snel een bevestiging."
+  });
+
+  injectNotificationAnimations();
 });
 
-// ===== QUOTE FORM HANDLING =====
-function handleQuoteForm() {
-    const form = document.getElementById('quoteForm');
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                naam: document.getElementById('naam').value,
-                email: document.getElementById('email').value,
-                telefoon: document.getElementById('telefoon').value,
-                datum: document.getElementById('datum').value,
-                eventtype: document.getElementById('eventtype').value,
-                bericht: document.getElementById('bericht').value
-            };
+// ===== FORM WIRING (werkt met name="" velden) =====
+function wireForm({ formId, subject, successMessage }) {
+  const form = document.getElementById(formId);
+  if (!form) return;
 
-            // Log data (in production: send to server)
-            console.log('Offerte aanvraag:', formData);
-            
-            // Show success message
-            showNotification('Bedankt! Je offerte aanvraag is ontvangen. Ik neem snel contact op.');
-            form.reset();
-        });
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const payload = collectFormData(form);
+    payload._subject = subject; // Formspree gebruikt dit als onderwerp
+
+    // Basis-validatie (email)
+    if (payload.email && !isValidEmail(String(payload.email))) {
+      showNotification("Vul een geldig e-mailadres in.", true);
+      return;
     }
+
+    // Verstuur via Formspree
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) throw new Error("Form submit failed");
+
+      showNotification(successMessage, false);
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      showNotification("Oeps—versturen ging mis. Probeer het opnieuw of mail me direct.", true);
+    }
+  });
 }
 
-// ===== APPOINTMENT FORM HANDLING =====
-function handleAppointmentForm() {
-    const form = document.getElementById('appointmentForm');
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                naam: document.getElementById('naam2').value,
-                email: document.getElementById('email2').value,
-                telefoon: document.getElementById('telefoon2').value,
-                datum: document.getElementById('datum2').value,
-                opmerking: document.getElementById('opmerking').value
-            };
+// Verzamelt automatisch alle input/select/textarea met een name=""
+function collectFormData(form) {
+  const data = {};
+  const fields = form.querySelectorAll("input[name], select[name], textarea[name]");
 
-            // Log data (in production: send to server)
-            console.log('Afspraak aanvraag:', formData);
-            
-            // Show success message
-            showNotification('Afspraak aangevraagd! Ik zal je snel een bevestiging sturen.');
-            form.reset();
-        });
+  fields.forEach((el) => {
+    const name = el.getAttribute("name");
+    if (!name) return;
+
+    if (el.type === "checkbox") {
+      data[name] = el.checked;
+      return;
     }
+
+    if (el.type === "radio") {
+      if (el.checked) data[name] = el.value;
+      return;
+    }
+
+    data[name] = el.value;
+  });
+
+  // Handig: voeg context toe
+  data.page = window.location.href;
+  data.timestamp = new Date().toISOString();
+
+  return data;
 }
 
 // ===== NOTIFICATION SYSTEM =====
-function showNotification(message) {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = 'notification success';
-    notification.textContent = message;
-    
-    // Add styles if not in CSS
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background-color: #ff6b00;
-        color: #0a0a0a;
-        padding: 15px 25px;
-        border-radius: 5px;
-        font-weight: 600;
-        z-index: 10000;
-        animation: slideIn 0.3s ease;
-        box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Remove after 5 seconds
+function showNotification(message, isError = false) {
+  const notification = document.createElement("div");
+  notification.className = `notification ${isError ? "error" : "success"}`;
+  notification.textContent = message;
+
+  // Kleur uit je CSS variables
+  const accent = getComputedStyle(document.documentElement).getPropertyValue("--accent-color").trim() || "#1e88e5";
+  const accentRgb = getComputedStyle(document.documentElement).getPropertyValue("--accent-rgb").trim() || "30, 136, 229";
+
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: ${isError ? "#ff4d4f" : accent};
+    color: ${isError ? "#ffffff" : "#0a0a0a"};
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: 700;
+    z-index: 10000;
+    animation: slideIn 0.3s ease;
+    box-shadow: 0 4px 15px rgba(${accentRgb}, 0.35);
+    max-width: 360px;
+    line-height: 1.3;
+  `;
+
+  document.body.appendChild(notification);
+
+  setTimeout(() => {
+    notification.style.animation = "slideOut 0.3s ease";
     setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 5000);
+      if (notification.parentNode) notification.parentNode.removeChild(notification);
+    }, 300);
+  }, 5000);
 }
 
-// ===== SMOOTH SCROLL HANDLING =====
-function handleSmoothScroll() {
-    // Already handled by HTML scroll-behavior: smooth
-    // This function can be expanded for more complex scroll behaviors
+// ===== HELPERS =====
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// ===== ADD ANIMATIONS TO CSS =====
-const style = document.createElement('style');
-style.textContent = `
+function injectNotificationAnimations() {
+  const style = document.createElement("style");
+  style.textContent = `
     @keyframes slideIn {
-        from {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
+      from { transform: translateX(400px); opacity: 0; }
+      to   { transform: translateX(0); opacity: 1; }
     }
-
     @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(400px);
-            opacity: 0;
-        }
+      from { transform: translateX(0); opacity: 1; }
+      to   { transform: translateX(400px); opacity: 0; }
     }
-`;
-document.head.appendChild(style);
+  `;
+  document.head.appendChild(style);
+}
