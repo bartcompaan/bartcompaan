@@ -35,8 +35,8 @@ body {
 
   /* Achtergrondfoto + overlay (zet jouw foto op: assets/bg.jpg) */
   background-image:
-    linear-gradient(rgba(10,10,10,0.72), rgba(10,10,10,0.72)),
-    url("assets/bg.jpg");
+linear-gradient(rgba(10,10,10,0.72), rgba(10,10,10,0.72)),
+  url("assets/bg.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
