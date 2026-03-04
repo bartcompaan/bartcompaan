@@ -27,8 +27,10 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+html, body, button, input, textarea, select {
   font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
   font-weight: 700;
   background-color: var(--dark-bg);
   color: var(--text-light);
